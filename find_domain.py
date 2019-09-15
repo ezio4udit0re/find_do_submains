@@ -7,8 +7,10 @@ def showhelp():
 Usage: python find_domain.py [OPTIONS]
 
 [OPTIONS]
-
--ip     [IP ADDRESS]
+[+] Find Domain and Subdmain:
+--ip     [IP ADDRESS]
+[+] Find Subdomain:
+--domain 
 
 """)
 
@@ -60,4 +62,7 @@ if __name__ == "__main__":
       showhelp()
       sys.exit()
    else:
-      find_domain(sys.argv[2])
+      if(sys.argv[1] == "--ip"):
+        find_domain(sys.argv[2])
+      elif(sys.argv[1] == "--domain"):
+        get_sub(sys.argv[2])
