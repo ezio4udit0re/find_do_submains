@@ -26,7 +26,7 @@ def get_sub(domain):
 def get_ip(url):
     try:
         url = url.replace(">> ","")
-        text = subprocess.Popen(["ping", "-c", "1", "{0}".format(url)], stdout=subprocess.PIPE)
+        text = subprocess.Popen(["ping", "-c", "1","-n","-i","0.2","-W1","{0}".format(url)], stdout=subprocess.PIPE)
         pipe = text.communicate()[0].decode()
         result = re.findall(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b", pipe)
         if not result:
